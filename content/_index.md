@@ -1,8 +1,7 @@
 ---
-menu:
-    main:
-        name: Home
-        weight: 1
-        params:
-            icon: home
+title: "启付盒"
+description: "记录成长，分享知识"
 ---
+
+欢迎来到我的博客！这里我会分享技术、学习和生活中的点滴。
+

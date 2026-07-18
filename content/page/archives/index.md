@@ -1,11 +1,6 @@
 ---
-title: "Archives"
-date: 2022-03-06
-layout: "archives"
+title: "归档"
+description: "文章归档"
 slug: "archives"
-menu:
-    main:
-        weight: 2
-        params: 
-            icon: archives
+layout: "archives"
 ---

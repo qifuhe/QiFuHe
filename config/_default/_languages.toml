@@ -1,6 +1,5 @@
-# Rename this file to languages.toml to enable multilingual support
-[en]
-    label     = "English"
-    direction = "ltr"
-    title     = "Example Site"
-    weight    = 1
+[zh-cn]
+  languageCode = "zh-CN"
+  languageName = "简体中文"
+  title = "启付盒"
+  weight = 1

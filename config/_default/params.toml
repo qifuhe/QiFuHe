@@ -1,57 +1,27 @@
-# Pages placed under these sections will be shown on homepage and archive page.
+# 主题配置
 mainSections = ["post"]
-# Output page's full content in RSS.
-rssFullContent = true
-favicon        = "img/favicon.png"
+description = "启付盒的个人博客"
+dateFormat = "2006-01-02"
 
-# Accepted values: "default", "lastmod"
-# default = see https://gohugo.io/quick-reference/glossary/#default-sort-order
-# lastmod = sort by last modified date, in descending order
-SortBy              = "default"
+# 主页信息
+siteTitle = "启付盒"
+siteSubtitle = "记录成长，分享知识"
 
-[footer]
-    since      = 2020
-    customText = ""
+# 侧边栏头像
+avatar = "/img/avatar.png"
 
-[dateFormat]
-    published   = ":date_full"
-    lastUpdated = ":date_full"
+# 页脚信息
+since = 2025
 
-[sidebar]
-    emoji    = "🍥"
-    subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    avatar   = "img/avatar.png"
+# 社交链接
+[[social]]
+    name = "GitHub"
+    link = "https://github.com/qifuhe"
 
-[article]
-    headingAnchor = false
-    math          = false
-    readingTime   = true
+[[social]]
+    name = "Email"
+    link = "mailto:i@qifuhe.com"
 
-    [article.license]
-        enabled = true
-        default = "Licensed under CC BY-NC-SA 4.0"
-
-[widgets]
-    homepage = [
-        { type = "search" },
-        { type = "archives", params = { limit = 5 } },
-        { type = "categories", params = { limit = 10 } },
-        { type = "tag-cloud", params = { limit = 10 } },
-    ]
-    page = [{ type = "toc" }]
-
-[opengraph.twitter]
-    site = ""
-    card = "summary_large_image"
-
-[colorScheme]
-    toggle  = true
-    default = "auto"
-
-## Comments
-[comments]
-    enabled  = true
-    provider = "disqus"
-
-    # See all the available configurations at https://github.com/CaiJimmy/hugo-theme-stack/blob/master/config/_default/params.toml
-    # Copy the configurations you need from there and paste it here.
+# 颜色主题
+colorScheme = "auto"
+sidebarCompact = false

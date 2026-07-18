@@ -1,5 +1,10 @@
-public
-resources
+public/
+resources/
 .hugo_build.lock
+hugo
+.hugo*
+*.swp
+*.swo
+*~
 .DS_Store
-assets/jsconfig.json
+Thumbs.db
