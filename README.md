@@ -13,14 +13,15 @@ mv hugo-theme-stack-4.0.3 themes/hugo-theme-stack
 hugo server -D
 ```
 
-## 部署到 Cloudflare Pages
+## 部署到 Cloudflare Workers + Pages（统一平台）
 
-Cloudflare Pages 中设置：
+项目包含 `wrangler.toml` 配置，Cloudflare 会自动使用其中的构建命令和输出目录设置。
 
 | 配置项 | 值 |
 |--------|-----|
-| **构建命令** | `curl -sL https://github.com/gohugoio/hugo/releases/download/v0.164.0/hugo_extended_0.164.0_linux-amd64.tar.gz \| tar xz && ./hugo --gc --minify` |
+| **框架** | `wrangler.toml` 自动配置 |
+| **构建命令** | 由 `wrangler.toml` 中的 `[build].command` 指定 |
 | **输出目录** | `public` |
 | **环境变量** | 无需设置 |
 
-> 主题已提交到仓库，构建时无需额外下载。直接使用 Cloudflare Pages 提供的 Hugo 即可。
+> 主题已提交到仓库，构建时无需额外下载。

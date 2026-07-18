@@ -1,0 +1,9 @@
+name = "qifuhe"
+compatibility_date = "2026-07-18"
+
+[build]
+    command = "curl -sL https://github.com/gohugoio/hugo/releases/download/v0.164.0/hugo_extended_0.164.0_linux-amd64.tar.gz -o hugo.tar.gz && tar xzf hugo.tar.gz && rm hugo.tar.gz && ./hugo --gc --minify"
+
+[assets]
+    directory = "public"
+    not_found_handling = "404-page"
