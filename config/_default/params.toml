@@ -1,7 +1,9 @@
 # 主题配置
 mainSections = ["post"]
 description = "启付盒的个人博客"
-dateFormat = "2006-01-02"
+[dateFormat]
+    published = "2006-01-02"
+    lastUpdated = "2006-01-02"
 
 # 主页信息
 siteTitle = "启付盒"
