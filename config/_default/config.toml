@@ -3,7 +3,8 @@ title = "启付盒"
 theme = "hugo-theme-stack"
 defaultContentLanguage = "zh-cn"
 hasCJKLanguage = true
-paginate = 8
+[pagination]
+    pagerSize = 8
 enableRobotsTXT = true
 
 [permalinks]
