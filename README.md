@@ -19,8 +19,8 @@ Cloudflare Pages 中设置：
 
 | 配置项 | 值 |
 |--------|-----|
-| **构建命令** | `curl -sL https://github.com/gohugoio/hugo/releases/download/v0.150.0/hugo_extended_0.150.0_linux-amd64.tar.gz \| tar xz && curl -sL https://github.com/CaiJimmy/hugo-theme-stack/archive/refs/tags/v4.0.3.tar.gz \| tar xz && mv hugo-theme-stack-* themes/hugo-theme-stack && ./hugo --gc --minify` |
+| **构建命令** | `curl -sL https://github.com/gohugoio/hugo/releases/download/v0.164.0/hugo_extended_0.164.0_linux-amd64.tar.gz \| tar xz && ./hugo --gc --minify` |
 | **输出目录** | `public` |
 | **环境变量** | 无需设置 |
 
-> Cloudflare Pages 自带 Hugo，但默认版本较低（0.147.7），所以构建命令中下载指定的 0.150.0 版本。主题也在构建时自动下载，无需提交到仓库。
+> 主题已提交到仓库，构建时无需额外下载。直接使用 Cloudflare Pages 提供的 Hugo 即可。
