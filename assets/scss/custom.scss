@@ -81,8 +81,18 @@ body {
     position: relative;
 }
 
-// 亮色模式：柔和径向渐变背景
-[data-scheme="light"] body::before {
+// 首页：使用 Background.png 图片作为背景
+body.template-home::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url('/Background.png') center / cover no-repeat fixed;
+    pointer-events: none;
+}
+
+// 亮色模式（非首页）：柔和径向渐变背景
+[data-scheme="light"] body:not(.template-home)::before {
     content: '';
     position: fixed;
     inset: 0;
@@ -95,8 +105,8 @@ body {
     pointer-events: none;
 }
 
-// 暗色模式：星空深邃渐变
-[data-scheme="dark"] body::before {
+// 暗色模式（非首页）：星空深邃渐变
+[data-scheme="dark"] body:not(.template-home)::before {
     content: '';
     position: fixed;
     inset: 0;
@@ -504,7 +514,7 @@ a {
 // ========== 首页欢迎区域 ==========
 
 // 首页文章列表增强
-.home .article-list {
+.template-home .article-list {
     .article-list--compact {
         article {
             transition: background-color 0.2s ease;
