@@ -1,7 +1,290 @@
-// 自定义样式
-// 可以在这里覆盖主题样式
+// 自定义样式 — QiFuHe 技术博客视觉定制
+// 基于 hugo-theme-stack 主题
 
-// 示例：自定义字体颜色
-// :root {
-//     --body-font-color: #333;
-// }
+// ========== 字体与排版优化 ==========
+
+:root {
+    // 中文字体栈，思源黑体/微软雅黑/PingFang 优先
+    --sys-font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+
+    // 改善正文行距
+    --article-line-height: 1.8;
+
+    // 标题字重
+    --heading-font-weight: 650;
+}
+
+// ========== 配色微调 ==========
+// 保留主题原始变量名，只调整色值
+
+:root {
+    // 品牌主色：靛蓝 → 更现代的亮蓝
+    --accent-color: #2563eb;
+    --accent-color-darker: #1d4ed8;
+    --accent-color-text: #fff;
+
+    // 亮色模式：更柔和的背景
+    --body-background: #f8f9fc;
+
+    // 卡片阴影：更细腻
+    --shadow-l1: 0px 1px 3px rgba(0, 0, 0, 0.06), 0px 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-l2: 0px 4px 12px rgba(0, 0, 0, 0.08), 0px 2px 4px rgba(0, 0, 0, 0.04);
+
+    &[data-scheme="dark"] {
+        // 暗色模式：主色保留蓝色调
+        --accent-color: #60a5fa;
+        --accent-color-darker: #93bbfd;
+        --accent-color-text: #000;
+
+        // 暗色背景：更深的灰，而非纯黑
+        --body-background: #1a1a2e;
+        --card-background: #242440;
+        --card-text-color-main: rgba(255, 255, 255, 0.92);
+        --card-text-color-secondary: rgba(255, 255, 255, 0.7);
+        --card-text-color-tertiary: rgba(255, 255, 255, 0.5);
+        --card-separator-color: rgba(255, 255, 255, 0.08);
+    }
+}
+
+// 暗色模式下的代码块
+[data-scheme="dark"] {
+    --pre-background-color: #1e1e2e;
+    --code-background-color: #2d2d44;
+
+    --blockquote-background-color: #2a2a45;
+
+    --table-border-color: #3a3a55;
+    --tr-even-background-color: #2a2a45;
+}
+
+// ========== 文章卡片增强 ==========
+
+.article-list article {
+    // 默认轻微位移，悬停时提升
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-l2);
+    }
+}
+
+// ========== 文章详情页 ==========
+
+.article-page .main-article {
+    // 文章头部装饰
+    .article-header {
+        position: relative;
+
+        .article-details {
+            padding-top: calc(var(--card-padding) + 4px);
+        }
+    }
+
+    // 文章内容增强排版
+    .article-content {
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: var(--heading-font-weight);
+            letter-spacing: 0.02em;
+        }
+
+        // 代码块圆角微调
+        pre, .highlight {
+            border-radius: 8px;
+        }
+
+        // 行内代码
+        code {
+            font-size: 0.9em;
+            padding: 2px 6px;
+        }
+
+        // 引用块美化
+        blockquote {
+            border-left-color: var(--accent-color);
+            border-left-width: 4px;
+            border-radius: 0 8px 8px 0;
+            padding: 14px 20px;
+        }
+
+        // 图片懒加载过渡
+        img {
+            border-radius: 8px;
+            transition: opacity 0.3s ease;
+        }
+
+        // 表格美化
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-l1);
+        }
+
+        th {
+            background: var(--accent-color);
+            color: var(--accent-color-text);
+            font-weight: 600;
+            padding: 10px 14px;
+        }
+
+        td {
+            padding: 8px 14px;
+        }
+    }
+
+    // 文章底部标签区域
+    .article-footer {
+        .article-tags a {
+            padding: 6px 14px;
+            font-size: 1.3rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: translateY(-1px);
+                box-shadow: var(--shadow-l1);
+            }
+        }
+    }
+}
+
+// ========== 侧边栏增强 ==========
+
+.sidebar header {
+    .site-name {
+        font-weight: 700;
+        letter-spacing: 0.03em;
+    }
+
+    .site-description {
+        font-size: 1.3rem;
+        opacity: 0.8;
+    }
+}
+
+// ========== 分页样式 ==========
+
+.pagination {
+    .page-link {
+        border-radius: 8px;
+        transition: all 0.2s ease;
+
+        &:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-l1);
+        }
+
+        &.active {
+            box-shadow: var(--shadow-l1);
+        }
+    }
+}
+
+// ========== 标签云 ==========
+
+.tagCloud .tagCloud-tags a {
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-l2);
+    }
+}
+
+// ========== 自定义滚动条 ==========
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.25);
+    }
+}
+
+[data-scheme="dark"] ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+}
+
+// ========== 页脚优化 ==========
+
+.site-footer {
+    position: relative;
+
+    &:before {
+        width: 60px !important;
+        height: 3px !important;
+        background: var(--accent-color) !important;
+        border-radius: 2px;
+    }
+
+    .copyright {
+        letter-spacing: 0.02em;
+    }
+}
+
+// ========== 全局链接悬停效果 ==========
+
+a {
+    transition: color 0.2s ease;
+}
+
+// ========== 选中文字颜色 ==========
+
+::selection {
+    background: var(--accent-color);
+    color: var(--accent-color-text);
+}
+
+// ========== 暗色模式增强 ==========
+
+[data-scheme="dark"] {
+    // 文章卡片暗色模式
+    .article-list article {
+        background: var(--card-background);
+    }
+
+    // 目录暗色背景
+    .widget--toc {
+        background: var(--card-background);
+    }
+
+    // 输入框暗色
+    input, textarea, select {
+        background: var(--card-background);
+        color: var(--card-text-color-main);
+        border-color: var(--card-separator-color);
+    }
+}
+
+// ========== 响应式微调 ==========
+
+@media (max-width: 768px) {
+    :root {
+        --card-padding: 16px;
+        --section-separation: 24px;
+    }
+
+    .article-list article {
+        border-radius: 8px;
+    }
+
+    .article-page .main-article {
+        border-radius: 8px;
+    }
+}
