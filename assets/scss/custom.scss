@@ -88,6 +88,7 @@ body {
     inset: 0;
     z-index: -1;
     background:
+        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(249, 168, 212, 0.06) 0%, transparent 100%),
         radial-gradient(ellipse 80% 60% at 0% -20%, rgba(79, 70, 229, 0.04) 0%, transparent 100%),
         radial-gradient(ellipse 60% 50% at 100% 80%, rgba(79, 70, 229, 0.03) 0%, transparent 100%),
         radial-gradient(ellipse 40% 40% at 50% 100%, rgba(14, 165, 233, 0.03) 0%, transparent 100%);
@@ -101,6 +102,7 @@ body {
     inset: 0;
     z-index: -1;
     background:
+        radial-gradient(ellipse 50% 40% at 10% 20%, rgba(249, 168, 212, 0.05) 0%, transparent 100%),
         radial-gradient(ellipse 70% 50% at 0% 0%, rgba(79, 70, 229, 0.06) 0%, transparent 100%),
         radial-gradient(ellipse 50% 40% at 100% 100%, rgba(129, 140, 248, 0.03) 0%, transparent 100%);
     pointer-events: none;
@@ -398,7 +400,7 @@ body {
         display: block;
         width: 60px;
         height: 3px;
-        background: linear-gradient(135deg, var(--accent-color), #818cf8);
+        background: linear-gradient(135deg, #f472b6, var(--accent-color), #818cf8);
         border-radius: 2px;
         margin: 0 auto 16px;
     }
@@ -528,6 +530,37 @@ a {
         -webkit-text-fill-color: transparent;
         background-clip: text;
         line-height: 1.2;
+    }
+}
+
+// ========== 花瓣飘落动画 ==========
+
+.petal {
+    position: fixed;
+    top: -20px;
+    z-index: 9998;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: petal-fall var(--fall-dur, 10s) linear infinite;
+    animation-delay: var(--fall-delay, 0s);
+}
+
+@keyframes petal-fall {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.7;
+    }
+    75% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(calc(100vh + 40px)) translateX(var(--fall-sway, 40px)) rotate(1080deg);
+        opacity: 0;
     }
 }
 
